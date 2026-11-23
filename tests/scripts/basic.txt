@@ -1,0 +1,15 @@
+ver
+dir
+cd ..
+cd User
+type readme.txt
+echo Hello World > a.txt
+echo second line >> a.txt
+type a.txt
+set /a 6*7+(10/3)
+set /a x=5, x*=3
+echo %x%
+md Projects\Calc\src
+tree /f
+dir /b /s | find "bat"
+dir /w

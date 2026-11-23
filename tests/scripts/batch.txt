@@ -1,0 +1,30 @@
+demo
+guess
+50
+25
+12
+6
+3
+1
+
+echo %RANDOM% > nul
+set name=World
+echo Hello %name%! len test %name:~1,3% / %name:o=0%
+if "%name%"=="World" (echo yes) else (echo no)
+if /i "%name%"=="world" echo case-insensitive match
+if not exist nothing.txt echo missing file ok
+if 5 GTR 10 (echo wrong) else echo 5 is not GTR 10
+for %i in (a b c) do @echo item %i
+for /l %n in (10,-3,1) do @echo %n
+for /f "tokens=2 delims=," %a in ("x,y,z") do echo second=%a
+for /f "tokens=1,3" %a in ('echo one two three') do echo %a-%b
+echo zeta& echo alpha& echo mid
+(echo zeta& echo alpha& echo mid) | sort
+dir /b | sort /r
+echo abc123 | findstr /r "[0-9][0-9]*$"
+echo nope | findstr "x" || echo findstr failed as expected
+echo ok && echo chained
+doskey ll=dir /b $*
+ll *.bat
+set /a 7/0
+foo

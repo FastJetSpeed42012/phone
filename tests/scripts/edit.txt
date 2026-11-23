@@ -1,0 +1,30 @@
+# tab completion: "ty" + TAB -> type ; "rea" + TAB -> readme.txt
+ty{Y=} rea{Y=}
+# history: up arrow recalls previous line
+{UP}
+# cursor editing: type "echX abc", go left 4, delete X, insert o
+echX abc{LEFT}{LEFT}{LEFT}{LEFT}{DEL}o
+# editor: create a file, type 2 lines, save with Y=, quit with GRAPH
+edit poem.txt{ENTER}Roses are red{ENTER}TI is blue{Y=}{GRAPH}{NOENTER}
+type poem.txt
+# edit again, go to end of first line, append text, quit without saving via GRAPH then DEL(no)
+edit poem.txt{ENTER}{2ND}{RIGHT}!!!{GRAPH}{DEL}{NOENTER}
+type poem.txt
+# edit and save on exit (GRAPH then ENTER=yes)
+edit poem.txt{ENTER}{DOWN}{2ND}{RIGHT} too{GRAPH}{ENTER}{NOENTER}
+type poem.txt
+# ON cancels a line
+echo this should not run{ON}{NOENTER}
+echo.
+echo off
+echo now echo is off
+echo on
+prompt $T$G
+prompt
+color 1e
+title My Calc Shell
+choice /c abc /m "Pick"
+b{NOENTER}
+echo errorlevel=%errorlevel%
+if errorlevel 2 echo at least 2
+history
