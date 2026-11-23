@@ -1,0 +1,41 @@
+setlocal
+copy con d.bat
+@echo off
+setlocal EnableDelayedExpansion
+set total=0
+for /l %%i in (1,1,4) do (
+  set /a total+=%%i
+  if !total! GTR 5 (echo big !total!) else echo small !total!
+)
+set x=1
+if 1==1 (set x=2& echo x is now !x!)
+^Z
+d
+echo autoexec next run
+echo @echo off> C:\autoexec.bat
+echo echo Autoexec ran!>> C:\autoexec.bat
+tasklist
+label
+mydrive
+vol
+date 12-25-2026
+date /t
+time 09:30
+time /t
+timeout /t 0
+del /q C:\autoexec.bat
+cmd /c echo via cmd /c
+whoami
+hostname
+ping localhost
+ping example.com
+ver | find "Version"
+format c:
+n
+cd ..\..\..\..
+cd Nope
+dir NoSuchDir
+rd Windows
+md Temp
+cd "Program Files"
+cd

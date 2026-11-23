@@ -1,0 +1,6 @@
+help
+{GRAPH}{NOENTER}
+{GRAPH}{NOENTER}
+help for
+dir /s /b C:\
+type readme.txt | more

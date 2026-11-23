@@ -1,0 +1,48 @@
+copy con args.bat
+@echo off
+echo arg0=%~n0 all=%*
+echo first=%1 unquoted=%~1
+shift
+echo after shift first=%1
+call :sub "x y" 42
+echo sub returned %errorlevel%
+setlocal EnableDelayedExpansion
+set total=0
+for /l %%i in (1,1,5) do (
+  set /a total+=%%i
+  echo running total !total!
+)
+echo final %total%
+endlocal
+echo after endlocal total=[%total%]
+for %%f in (*.txt) do echo text file: %%f
+for /d %%d in (*) do echo folder: %%d
+if exist readme.txt (
+  echo readme found
+) else (
+  echo no readme
+)
+set n=0
+:top
+set /a n+=1
+if %n% GEQ 3 goto done
+echo loop %n%
+goto top
+:done
+echo finished at %n%
+exit /b 7
+:sub
+echo in sub: %1 / %~1 / %2
+exit /b 3
+^Z
+args "hello world" two three
+echo exit code %errorlevel%
+echo @echo off> C:\autoexec.bat
+echo echo Autoexec ran!>> C:\autoexec.bat
+tasklist
+export readme.txt README
+import README back.txt
+fc readme.txt back.txt
+start NOPE
+start PRGMA
+systeminfo

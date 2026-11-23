@@ -1,0 +1,42 @@
+cd Documents
+echo line one> notes.txt
+copy notes.txt backup.txt
+copy notes.txt+backup.txt both.txt
+type both.txt
+ren backup.txt *.bak
+dir /b
+move both.txt ..
+dir /b ..\*.txt
+attrib +r notes.txt
+del notes.txt
+attrib
+attrib -r notes.txt
+del *.txt
+dir /b
+cd \
+xcopy Users\User Temp\copy /s /q
+tree Temp
+rd Temp\copy
+rd /s /q Temp\copy
+dir /b Temp
+fc C:\Users\User\readme.txt C:\Users\User\readme.txt
+echo a> x1.txt& echo b> x2.txt
+fc x1.txt x2.txt
+cd /d C:\Users\User
+pushd \Windows\System32
+cd
+popd
+cd
+type nul > empty.txt
+dir empty.txt
+where guess
+set U
+set nonexist
+copy con typed.txt
+first typed line
+second
+^Z
+type typed.txt
+find /n "sec" typed.txt
+find /c "line" typed.txt readme.txt
+mem
