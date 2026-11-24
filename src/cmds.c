@@ -1607,41 +1607,6 @@ static int c_whoami(int argc, char **argv, char *raw)
     return 0;
 }
 
-static int c_ipconfig(int argc, char **argv, char *raw)
-{
-    (void)argc; (void)argv; (void)raw;
-    out_puts("\nIP Configuration\n\n"
-             "USB adapter:\n\n"
-             "   Media State . . : Media disconnected\n\n"
-             "Loopback adapter:\n\n"
-             "   IPv4 Address. . : 127.0.0.1\n"
-             "   Subnet Mask . . : 255.0.0.0\n");
-    return 0;
-}
-
-static int c_ping(int argc, char **argv, char *raw)
-{
-    char *h[1];
-    bool local;
-    (void)raw;
-    if (!plain_args(argc, argv, h, 1)) { out_puts("Usage: ping host\n"); return 1; }
-    local = !stricmp_(h[0], "localhost") || !strncmp(h[0], "127.", 4) ||
-            !stricmp_(h[0], env_get("COMPUTERNAME"));
-    if (!local) {
-        out_printf("Ping request could not find host %s.\nPlease check the name and try again.\n", h[0]);
-        return 1;
-    }
-    out_printf("\nPinging %s [127.0.0.1]\nwith 32 bytes of data:\n", h[0]);
-    for (int i = 0; i < 4 && !check_break(); i++) {
-        clock_t t = clock();
-        out_puts("Reply from 127.0.0.1: bytes=32 time<1ms\n");
-        con_render();
-        while (clock() - t < CLOCKS_PER_SEC && !check_break()) ;
-    }
-    out_puts("\nPing statistics for 127.0.0.1:\n    Packets: Sent = 4, Received = 4,\n    Lost = 0 (0% loss)\n");
-    return 0;
-}
-
 /* list calculator variables like processes */
 static int c_tasklist(int argc, char **argv, char *raw)
 {
@@ -1982,7 +1947,6 @@ const cmd_t commands[] = {
     {"hostname", c_hostname, "Prints the computer name."},
     {"if", cmd_if, "Conditional processing.\nIF [/I] [NOT] a==b cmd\nIF [NOT] EXIST file cmd\nIF [NOT] DEFINED var cmd\nIF [NOT] ERRORLEVEL n cmd\nIF a EQU|NEQ|LSS|LEQ|GTR|GEQ b cmd\nIF cond (cmd) ELSE (cmd)"},
     {"import", c_import, "Copies a calculator AppVar (or\nprogram with /P) into a file.\nIMPORT VARNAME file [/P]"},
-    {"ipconfig", c_ipconfig, "Shows network configuration."},
     {"keys", c_keys, "Shows the keypad map."},
     {"label", c_label, "Changes the volume label.\nLABEL [name]"},
     {"md", c_md, "Creates directories (and parents).\nMD path [path...]"},
@@ -1993,7 +1957,6 @@ const cmd_t commands[] = {
     {"notepad", c_edit, "Same as EDIT."},
     {"path", c_path, "Shows or sets the search path.\nPATH [dir;dir...]   PATH ;"},
     {"pause", c_pause, "Waits for a key press."},
-    {"ping", c_ping, "Pings a host (loopback only).\nPING host"},
     {"popd", c_popd, "Returns to the dir saved by PUSHD."},
     {"prompt", c_prompt, "Changes the prompt.\nPROMPT [text]  $P path $G > $D date\n$T time $_ newline $N drive $$ $"},
     {"pushd", c_pushd, "Saves the current dir, then CDs.\nPUSHD [path]"},
