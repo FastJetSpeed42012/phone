@@ -85,7 +85,7 @@ Every command accepts `/?`, and `help <command>` shows its usage.
 | Files & folders | `dir` (`/s /b /w /a /p`), `cd`/`chdir`, `md`/`mkdir`, `rd`/`rmdir` (`/s /q`), `copy` (wildcards, `a+b`, `copy con`), `xcopy` (`/s /e`), `move`, `ren` (incl. `*.txt *.bak`), `del`/`erase` (`/s /q /f`), `attrib` (`+r -h …`), `tree` (`/f`), `pushd`/`popd`, `label`, `vol`, `format` |
 | Text | `type`, `more`, `find` (`/i /v /c /n`), `findstr` (regex: `. * + ? ^ $ [a-z] [^x]`, `/i /v /n /b /e /m /c:`), `sort` (`/r`), `fc`, `edit`/`notepad` (full-screen editor) |
 | Shell | `echo`, `set` (incl. `/a` math, `/p` input), `setlocal`/`endlocal` (`EnableDelayedExpansion`), `if`, `for` (`/l /d /f`), `goto`, `call`, `shift`, `exit` (`/b n`), `pause`, `choice`, `timeout`, `rem`, `cls`, `color`, `title`, `prompt`, `path`, `doskey` (macros), `history`, `cmd /c`, `where`, `help`, `keys` |
-| System | `ver`, `systeminfo`, `mem`, `date`, `time`, `whoami`, `hostname`, `ipconfig`, `ping` (loopback only), `shutdown` |
+| System | `ver`, `systeminfo`, `mem`, `date`, `time`, `whoami`, `hostname`, `shutdown` |
 | Calculator | `tasklist` lists programs and AppVars. `start PRGM` (or just type a program's name) runs a TI program and returns to CMD when it ends. `taskkill /im NAME` deletes a program or AppVar. `export file VAR` / `import VAR file [/p]` copy data between C: and real AppVars or programs. |
 
 ### Shell features

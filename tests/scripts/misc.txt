@@ -27,8 +27,6 @@ del /q C:\autoexec.bat
 cmd /c echo via cmd /c
 whoami
 hostname
-ping localhost
-ping example.com
 ver | find "Version"
 format c:
 n
